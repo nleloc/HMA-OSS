@@ -1,7 +1,7 @@
 #!/system/bin/sh
 
 MODDIR=/data/adb/modules/hma_oss_zygisk
-LOG_FILE=$(ls -1 /data/misc/hide_my_applist_*/log/runtime.log 2>/dev/null | head -n 1)
+statusFile=$(ls -1 /data/misc/hide_my_applist_*/log/working_mode 2>/dev/null | head -n 1)
 
 
 # if there's /, \ or & symbol, replace it with \/ (escape /), \\ (escape \) or \& (escape &)
@@ -10,7 +10,7 @@ ORIG_DESC=$(grep "^description=" "$MODDIR/module.prop.bak" | cut -d= -f2-)
 ORIG_DESC_FIX=$(printf '%s\n' "$ORIG_DESC" | sed 's/[&/\]/\\&/g')
 
 
-MODE=$(grep "HMA service initialized in mode" "$LOG_FILE" | tail -1 | awk '{print $NF}')
+MODE=$(cat "$statusFile 2>/dev/null")
 
 case "$MODE" in
     1) STATUS="[✅ System service loaded]" ;;

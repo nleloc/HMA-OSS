@@ -17,4 +17,7 @@ MODDIR=/data/adb/modules/hma_oss_zygisk
 # INFO: Resets HMA-OSS's module.prop to its default state which is saved upon installation.
 cp "$MODDIR/module.prop.bak" "$MODDIR/module.prop"
 
+# clears old status file
+rm -f /data/misc/hide_my_applist_*/log/working_mode
+
 exit 0

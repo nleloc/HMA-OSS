@@ -81,6 +81,7 @@ class HMAService(val pms: IPackageManager, val pmn: Any?, private var managerWor
     private lateinit var filterCountFile: File
     private lateinit var logFile: File
     private lateinit var oldLogFile: File
+    private lateinit var statusFile: File
 
     private val configLock = Any()
     private val loggerLock = Any()
@@ -154,6 +155,14 @@ class HMAService(val pms: IPackageManager, val pmn: Any?, private var managerWor
         oldLogFile = File("$dataDir/log/old.log")
         logFile.renameTo(oldLogFile)
         logFile.createNewFile()
+        statusFile = File("$dataDir/log/working_mode")
+
+        // try expose managerWorkMode into statusFile
+        try {
+            statusFile.writeText(managerWorkMode.toString())
+        } catch (e: Exception) {
+            // skip if can't
+        }
 
         logcatAvailable = true
         logI(TAG) { "Data dir: $dataDir" }
