@@ -97,6 +97,12 @@
             android:title="@string/settings_disable_activity_launch_protection"
             android:summary="@string/settings_disable_activity_launch_protection_summary" />
         <SwitchPreferenceCompat
+            android:icon="@drawable/outline_android_24"
+            android:key="apkFdProtection"
+            app:singleLineTitle="false"
+            android:title="@string/settings_app_apk_fd_protection"
+            android:summary="@string/settings_app_apk_fd_summary" />
+        <SwitchPreferenceCompat
             android:icon="@drawable/tab_close_inactive_24px"
             android:key="webViewProtection"
             app:singleLineTitle="false"

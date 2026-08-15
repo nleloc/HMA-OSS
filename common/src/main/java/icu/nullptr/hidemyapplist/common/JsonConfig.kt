@@ -42,6 +42,13 @@ data class JsonConfig(
     var disableActivityLaunchProtection: Boolean = false,
 
     /**
+     * Enable/disable the Open APK FD protection
+     *
+     * Fixes an app detection leak caused by open APK FD
+    */
+    var apkFdProtection: Boolean = false,
+
+    /**
      * Enable/disable alternative (propless) appdata isolation
      */
     var altAppDataIsolation: Boolean = false,
@@ -163,6 +170,12 @@ data class JsonConfig(
          * - If it was disabled globally, then it will be enabled for this application
          */
         var invertActivityLaunchProtection: Boolean = false,
+
+        /**
+         * Invert the currently active open apk fd protection mode for this application
+         * works like above one :p
+        */
+        var invertApkFdProtection: Boolean = false,
 
         /**
          * Exclude this app from appdata isolation

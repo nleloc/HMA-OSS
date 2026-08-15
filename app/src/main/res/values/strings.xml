@@ -128,6 +128,9 @@
     <string name="app_invert_activity_launch_protection">Invert Activity launch protection</string>
     <string name="app_invert_activity_launch_protection_desc">This option will invert \"Disable Activity launch protection\" selection in Settings.</string>
     <string name="app_global_activity_launch_protection_state">Protection is %s globally</string>
+    <string name="app_invert_apk_fd_protection">Invert APK FD protection</string>
+    <string name="app_invert_apk_fd_protection_desc">This option will invert \"APK FD protection\" selection in Settings.</string>
+    <string name="app_apk_fd_protection_state">Protection is %s globally</string>
     <string name="app_force_stop_launch">Force stop and launch</string>
     <string name="app_launch">Launch</string>
     <string name="app_launch_failed">App launch failed, check logs for more details</string>
@@ -197,6 +200,8 @@
     <string name="settings_bypass_risky_package_warning_summary">Note that the devs are not responsible for risky package related issues before or after you enabled this feature</string>
     <string name="settings_disable_activity_launch_protection">Disable Activity launch protection</string>
     <string name="settings_disable_activity_launch_protection_summary">This toggle will lift all startActivity protections. If you\'re unsure, don\'t enable it.</string>
+    <string name="settings_app_apk_fd_protection">Enable app APK FD protection</string>
+    <string name="settings_app_apk_fd_summary">This will fix applist leaks caused by Open APK FD</string>
     <string name="settings_system_wallpaper">Use system wallpaper</string>
     <string name="settings_clear_uninstalled_app_configs">Clear uninstalled app configs</string>
     <string name="settings_clear_uninstalled_app_configs_summary">This option allows you to create a config without remnants but you\'ll have to reconfigure apps when you installed them again.</string>

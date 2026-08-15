@@ -42,7 +42,7 @@ jobs:
           java-version: '21'
 
       - name: Write key
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        if: github.event_name != 'pull_request'
         run: |
           echo officialBuild=true >> local.properties
           echo storePassword='${{ secrets.KEY_STORE_PASSWORD }}' >> local.properties

@@ -33,6 +33,12 @@
             app:singleLineTitle="false"
             android:title="@string/app_invert_activity_launch_protection"
             android:summary="@string/app_invert_activity_launch_protection_desc" />
+        <SwitchPreferenceCompat
+            android:icon="@drawable/outline_android_24"
+            android:key="invertApkFdProtection"
+            app:singleLineTitle="true"
+            android:title="@string/app_invert_apk_fd_protection"
+            android:summary="@string/app_invert_apk_fd_protection_desc" />
         <Preference
             android:icon="@drawable/syringe_24px"
             android:key="restrictZygotePermissions"

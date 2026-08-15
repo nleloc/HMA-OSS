@@ -437,6 +437,19 @@ class HMAService(val pms: IPackageManager, val pmn: Any?, private var managerWor
         return false
     }
 
+    fun shouldProtectApkFd(caller: String?, query: String?, userId: Int): Boolean {
+        val appConfig = config.scope[caller]
+        if (appConfig != null && shouldHide(caller, query, userId)) {
+            return if (appConfig.invertApkFdProtection) {
+                !config.apkFdProtection
+            } else {
+                config.apkFdProtection
+            }
+        }
+
+        return false
+    }
+
     fun shouldHideInstallationSource(caller: String?, query: String?, callingUser: Int): Int {
         if (caller == null || query == null) return Constants.FAKE_INSTALLATION_SOURCE_DISABLED
         if (caller == BuildConfig.APP_PACKAGE_NAME) return Constants.FAKE_INSTALLATION_SOURCE_DISABLED

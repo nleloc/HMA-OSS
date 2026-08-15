@@ -105,6 +105,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings), PreferenceFragmen
                 "voldAppDataIsolation" -> ConfigManager.altVoldAppDataIsolation
                 "skipSystemAppDataIsolation" -> ConfigManager.skipSystemAppDataIsolation
                 "disableActivityLaunchProtection" -> ConfigManager.disableActivityLaunchProtection
+                "apkFdProtection" -> ConfigManager.apkFdProtection
                 "forceMountData" -> ConfigManager.forceMountData
                 "enableInternet" -> PrefManager.enableInternet == Constants.ENABLE_INTERNET_ON
                 "disableUpdate" -> PrefManager.disableUpdate
@@ -151,6 +152,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings), PreferenceFragmen
                 "hideIcon" -> PrefManager.hideIcon = value
                 "bypassRiskyPackageWarning" -> PrefManager.bypassRiskyPackageWarning = value
                 "disableActivityLaunchProtection" -> ConfigManager.disableActivityLaunchProtection = value
+                "apkFdProtection" -> ConfigManager.apkFdProtection = value
                 "appDataIsolation" -> ConfigManager.altAppDataIsolation = value
                 "voldAppDataIsolation" -> ConfigManager.altVoldAppDataIsolation = value
                 "skipSystemAppDataIsolation" -> ConfigManager.skipSystemAppDataIsolation = value

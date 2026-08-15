@@ -142,6 +142,13 @@ object ConfigManager {
             saveConfig()
         }
 
+    var apkFdProtection: Boolean
+        get() = config.apkFdProtection
+        set(value) {
+            config.apkFdProtection = value
+            saveConfig()
+        }
+
     var defaultConfig: JsonConfig.AppConfig?
         get() = config.defaultConfig
         set(value) {
