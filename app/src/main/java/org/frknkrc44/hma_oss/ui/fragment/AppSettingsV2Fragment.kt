@@ -159,6 +159,7 @@ class AppSettingsV2Fragment : Fragment(R.layout.fragment_settings) {
                 "hideSystemInstallationSource" -> pack.config.hideSystemInstallationSource
                 "excludeTargetInstallationSource" -> pack.config.excludeTargetInstallationSource
                 "invertActivityLaunchProtection" -> pack.config.invertActivityLaunchProtection
+                "invertApkFdProtection" -> pack.config.invertApkFdProtection
                 "excludeVoldIsolation" -> pack.config.excludeVoldIsolation
                 else -> throw IllegalArgumentException("Invalid key: $key")
             }
@@ -172,6 +173,7 @@ class AppSettingsV2Fragment : Fragment(R.layout.fragment_settings) {
                 "hideSystemInstallationSource" -> pack.config.hideSystemInstallationSource = value
                 "excludeTargetInstallationSource" -> pack.config.excludeTargetInstallationSource = value
                 "invertActivityLaunchProtection" -> pack.config.invertActivityLaunchProtection = value
+                "invertApkFdProtection" -> pack.config.invertApkFdProtection = value
                 "excludeVoldIsolation" -> pack.config.excludeVoldIsolation = value
                 else -> throw IllegalArgumentException("Invalid key: $key")
             }
@@ -313,6 +315,15 @@ class AppSettingsV2Fragment : Fragment(R.layout.fragment_settings) {
                             (!ConfigManager.disableActivityLaunchProtection).enabledString(resources)
                         )
             }
+
+            findPreference<SwitchPreferenceCompat>("invertApkFdProtection")?.let {
+                it.summary = getString(R.string.app_invert_apk_fd_protection_desc) + "\n\n" +
+                        getString(
+                            R.string.app_apk_fd_protection_state,
+                            (!ConfigManager.apkFdProtection).enabledString(resources)
+                        )
+            }
+
             findPreference<Preference>("restrictZygotePermissions")?.setOnPreferenceClickListener {
                 val checked = Constants.GID_PAIRS.values.map {
                     it in pack.config.restrictedZygotePermissions
