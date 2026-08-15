@@ -120,6 +120,7 @@ abstract class PmsHookTargetBase : IFrameworkHook {
                     COMPUTER_ENGINE_CLASS,
                     "getPackageInfoInternal",
                 ) { methodName, frame, returnValue ->
+                    logI(TAG) { "@getApplicationInfoInternal CALLED - uid=${Binder.getCallingUid()}" }
                     applyPackageHiding(
                         methodName,
                         { frame.args.firstOrNullWithType() },
@@ -133,6 +134,7 @@ abstract class PmsHookTargetBase : IFrameworkHook {
                     COMPUTER_ENGINE_CLASS,
                     "getApplicationInfoInternal",
                 ) { methodName, frame, returnValue ->
+                    logI(TAG) { "@getApplicationInfoInternal CALLED - uid=${Binder.getCallingUid()}" }
                     applyPackageHiding(
                         methodName,
                         { frame.args.firstOrNullWithType() },
