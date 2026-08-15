@@ -120,13 +120,22 @@ abstract class PmsHookTargetBase : IFrameworkHook {
                     COMPUTER_ENGINE_CLASS,
                     "getPackageInfoInternal",
                 ) { methodName, frame, returnValue ->
-                    logI(TAG) { "@getApplicationInfoInternal CALLED - uid=${Binder.getCallingUid()}" }
+                    val callingUid = Binder.getCallingUid()
+                    val targetApp: String? = frame.args.firstOrNullWithType()
+                    if (callingUid == 10340) {
+                        logI(TAG) { "@getPackageInfoInternal uid=$callingUid target=$targetApp" }
+                    }
                     applyPackageHiding(
                         methodName,
                         { frame.args.firstOrNullWithType() },
                         { frame.args.firstOrNullWithType() },
                         ::getCallingApps,
-                        { returnValue.result = null },
+                        {
+                            returnValue.result = null
+                            if (callingUid == 10340) {
+                                logI(TAG) { "@getPackageInfoInternal BLOCKED uid=$callingUid target=$targetApp" }
+                            }
+                        },
                     )
                 }
 
@@ -134,13 +143,22 @@ abstract class PmsHookTargetBase : IFrameworkHook {
                     COMPUTER_ENGINE_CLASS,
                     "getApplicationInfoInternal",
                 ) { methodName, frame, returnValue ->
-                    logI(TAG) { "@getApplicationInfoInternal CALLED - uid=${Binder.getCallingUid()}" }
+                    val callingUid = Binder.getCallingUid()
+                    val targetApp: String? = frame.args.firstOrNullWithType()
+                    if (callingUid == 10340) {
+                        logI(TAG) { "@getApplicationInfoInternal uid=$callingUid target=$targetApp" }
+                    }
                     applyPackageHiding(
                         methodName,
                         { frame.args.firstOrNullWithType() },
                         { frame.args.firstOrNullWithType() },
                         ::getCallingApps,
-                        { returnValue.result = null },
+                        {
+                            returnValue.result = null
+                            if (callingUid == 10340) {
+                                logI(TAG) { "@getApplicationInfoInternal BLOCKED uid=$callingUid target=$targetApp" }
+                            }
+                        },
                     )
                 }
 
